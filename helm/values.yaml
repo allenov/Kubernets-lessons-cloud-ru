@@ -1,0 +1,32 @@
+name: hello-app
+
+# Образ
+image:
+  repository: <you_registry>.cr.cloud.ru/hello_server
+  tag: latest
+  pullPolicy: IfNotPresent
+
+# Креды для registry
+registry:
+  createSecret: true
+  name: registry-creds
+  server: <you_registry>.cr.cloud.ru
+  username: ""
+  password: ""
+  email: ""
+
+# Порты
+service:
+  port: 8080
+  targetPort: 8080
+
+# Ресурсы
+resources:
+  limits:
+    cpu: 100m
+    memory: 128Mi
+  requests:
+    cpu: 50m
+    memory: 64Mi
+
+replicaCount: 1

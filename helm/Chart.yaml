@@ -1,0 +1,6 @@
+apiVersion: v2
+name: hello-app
+description: Simple Hello Go app with registry auth
+type: application
+version: 0.1.0
+appVersion: "1.0.0"
