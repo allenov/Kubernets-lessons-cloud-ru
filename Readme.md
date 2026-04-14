@@ -48,14 +48,6 @@ kubectl run hello-app \
   --image=<you_registry>.cr.cloud.ru/hello_server:latest \
   --restart=Never \
   --namespace=hello-app \
-  --image-pull-secrets=my-registry-secret
-```
-
-```bash
-kubectl run hello-app \
-  --image=<you_registry>.cr.cloud.ru/hello_server:latest \
-  --restart=Never \
-  --namespace=hello-app \
   --overrides='
 {
   "apiVersion": "v1",
@@ -92,9 +84,7 @@ Helm — пакетный менеджер для Kubernetes.
 
 Создадим helm-чарт для нашего приложения 
 ```bash
-mkdir -p helm
-
-helm create helm/hello-app
+helm create helm
 ```
 
 Удалим стандартные шаблоны и values
@@ -230,7 +220,7 @@ spec:
 И наконец применим наш helm-чарт
 
 ```bash
-helm install api helm \       
+helm install api helm \
   --namespace hello-app \
   --create-namespace \
   --set registry.username=... \
